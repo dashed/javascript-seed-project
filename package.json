@@ -1,0 +1,33 @@
+{
+  "name": "MyAwesomeProject",
+  "version": "0.0.0",
+  "description": "Description about my awesome project.",
+  "scripts": {
+    "test": "istanbul test --report html -x 'vendor/**' --hook-run-in-context _mocha",
+    "test-travis": "istanbul cover -x 'vendor/**' --hook-run-in-context _mocha -- -R spec;A=$?;cat coverage/lcov.info | coveralls;exit $A"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amazing/project.git"
+  },
+  "author": "Amazing author",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amazing/project/issues"
+  },
+  "homepage": "https://github.com/amazing/project",
+  "devDependencies": {
+    "requirejs": "~2",
+    "coffee-script": "~1",
+    "mocha": "*",
+    "chai": "*",
+    "istanbul": "*",
+    "gulp": "~3",
+    "gulp-coffee": "~1",
+    "gulp-util": "~2",
+    "coveralls": "~2"
+  },
+  "dependencies": {
+    "requirejs": "~2"
+  }
+}
