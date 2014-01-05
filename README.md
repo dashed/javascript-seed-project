@@ -43,6 +43,8 @@ Note that the `script:` attribute is particularly important. This tells travis-c
 
 travis-ci would execute the following: `npm run test-travis`
 
+**Note:** mocha running in travis-ci uses `-R spec` (or `--reporter spec`) option which will override any such setting in the `./test/mocha.opts` file.
+
 ## coveralls.io
 
 Like Travis-CI, Coveralls.io has its own dotfile: `.coveralls.yml`
@@ -115,15 +117,18 @@ See [mocha docs](https://github.com/visionmedia/mocha), [chai.js style guide](ht
 
 Since chai.js is included, you're free to use BDD/TDD style.
 
-### AMD testing
+### AMD testing (requirejs)
 
 If the project is structured as AMD modules for use by require.js (or some AMD loader), special care is needed to be able to load AMD modules for mocha.
 
 Fortunately, the file `./test/test.coffee` contains all the boilerplate code needed to be able to load and test AMD modules. Feel free to copy and complete.
 
+In short, mocha support for [async code](http://visionmedia.github.io/mocha/#asynchronous-code) along with beforeEach hook makes AMD testing possible.
+
+
 ## Code Coverage
 
-Code coverage is provided by [instanbul](https://github.com/gotwarlost/istanbul). It will analyze your JavaScript code from `./src/` folder against tests within `./test/`, and report which parts of your code in source files aren't **referenced** in the mocha tests.
+Code coverage is provided by [instanbul](https://github.com/gotwarlost/istanbul). It will analyze your JavaScript code from `./src/` folder against tests within `./test/`, and report which parts of your code in source files **are not referenced** in the mocha tests.
 
 
 Run `npm test --coverage` for instanbul to generate the HTML report within `./coverage/` folder.
