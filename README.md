@@ -9,7 +9,10 @@ With this seed, you should be able to:
 
 1. Develop in CoffeeScript
 2. Transcompile to JavaScript
-3. Test and build in JavaScript
+3. Test in CoffeeScript (or JavaScript)
+4. Build in JavaScript
+
+Cycle steps one through three, before finally getting to step four. Build and repeat as necessary.
 
 Included
 ========
