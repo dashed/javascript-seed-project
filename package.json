@@ -26,8 +26,5 @@
     "gulp-coffee": "~1",
     "gulp-util": "~2",
     "coveralls": "~2"
-  },
-  "dependencies": {
-    "requirejs": "~2"
   }
 }
