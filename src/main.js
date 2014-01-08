@@ -1,12 +1,18 @@
-define([], function() {
-  var SomeApp;
-  SomeApp = (function() {
-    function SomeApp() {
-      return;
-    }
+var SomeApp, beep, shout;
 
-    return SomeApp;
+SomeApp = (function() {
+  function SomeApp() {
+    return;
+  }
 
-  })();
   return SomeApp;
-});
+
+})();
+
+shout = require('./shout');
+
+beep = function() {
+  return console.log(shout('beep'));
+};
+
+module.exports = beep;

@@ -4,7 +4,8 @@
   "description": "Description about my awesome project.",
   "scripts": {
     "test": "istanbul test --report html -x 'vendor/**' --hook-run-in-context _mocha",
-    "test-travis": "istanbul cover -x 'vendor/**' --hook-run-in-context _mocha -- -R spec;A=$?;cat coverage/lcov.info | coveralls;exit $A"
+    "test-travis": "istanbul cover -x 'vendor/**' --hook-run-in-context _mocha -- -R spec;A=$?;cat coverage/lcov.info | coveralls;exit $A",
+    "webpack": "webpack"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,6 @@
   },
   "homepage": "https://github.com/amazing/project",
   "devDependencies": {
-    "requirejs": "~2",
     "coffee-script": "~1",
     "mocha": "*",
     "chai": "*",
@@ -28,6 +28,10 @@
     "coveralls": "~2",
     "browserify": "~3",
     "gulp-browserify": "~0",
-    "gulp-uglify": "~0"
+    "gulp-uglify": "~0",
+    "webpack": "~0.11",
+    "gulp-watch": "~0",
+    "gulp-if": "~0",
+    "gulp-plumber": "~0"
   }
 }

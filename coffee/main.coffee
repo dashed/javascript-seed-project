@@ -1,8 +1,14 @@
-define [], () ->
 
-    class SomeApp
+class SomeApp
 
-        constructor: ()->
-            return
+    constructor: ()->
+        return
 
-    return SomeApp
+# module.exports = SomeApp
+
+shout = require('./shout')
+
+beep = ()->
+    console.log(shout('beep'))
+
+module.exports = beep
