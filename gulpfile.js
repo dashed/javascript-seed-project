@@ -51,11 +51,12 @@ var getGlob = function(glob_target) {
 gulp.task('coffee', function() {
 
     var target = path.normalize(srcCoffeeDir + '/**/*.coffee');
+
     getGlob(target)
         .on('data', function(file){
             file.coffee_path = file.path;
         })
-        .pipe(plumber())
+        // .pipe(plumber())
         .pipe(coffee({bare: true}))
             // .on('error', gutil.log)
             // .on('error', gutil.beep)
