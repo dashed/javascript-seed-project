@@ -25,6 +25,9 @@
     "gulp": "~3",
     "gulp-coffee": "~1",
     "gulp-util": "~2",
-    "coveralls": "~2"
+    "coveralls": "~2",
+    "browserify": "~3",
+    "gulp-browserify": "~0",
+    "gulp-uglify": "~0"
   }
 }

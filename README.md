@@ -18,14 +18,17 @@ Included
 ========
 
 * [CoffeeScript](http://coffeescript.org/) - syntatic sugar
-* [RequireJS](http://requirejs.org/) - JavaScript file and module loader (AMD)
-* [Gulp](http://gulpjs.com/) - build system
-    * [gulp-coffee](https://github.com/wearefractal/gulp-coffee) - transcompile JS to CoffeeScript
-    * [gulp-util](https://github.com/gulpjs/gulp-util) - utility belt for gulpfile.js
+* browserify - browser compatible require() the node.js way
 * [mocha](https://github.com/visionmedia/mocha) + [chai.js](http://chaijs.com/) = test framework + assertion framework
 * [istanbul](https://github.com/gotwarlost/istanbul) - JS code coverage
 * [travis-ci](https://travis-ci.org/) - continuous integration service for testing
 * [node-coveralls](https://github.com/cainus/node-coveralls) - lcov posting to [coveralls.io](https://coveralls.io) for public code coverage analysis
+* [gulp](http://gulpjs.com/) - build system
+    * [gulp-coffee](https://github.com/wearefractal/gulp-coffee) - transcompile JS to CoffeeScript
+    * [gulp-util](https://github.com/gulpjs/gulp-util) - utility belt for gulpfile.js
+    * gulp-plumber
+    * gulp-watch
+
 
 
 
