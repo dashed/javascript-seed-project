@@ -19,12 +19,10 @@
   },
   "homepage": "https://github.com/amazing/project",
   "devDependencies": {
-    "coffee-script": "~1",
     "mocha": "*",
     "chai": "*",
     "istanbul": "*",
     "gulp": "~3",
-    "gulp-coffee": "~1",
     "gulp-util": "~2",
     "coveralls": "~2",
     "gulp-uglify": "~0",

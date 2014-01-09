@@ -1,15 +1,14 @@
-coffeescript-seed-project
+javascript-seed-project
 =========================
 
-Seed git repo for coffeescript-based projects. Just clone and code.
+Seed git repo for JavaScript-based projects. Just clone and code.
 
 Inspired by projects like [ultimate-seed](https://github.com/pilwon/ultimate-seed) and [angular-seed](https://github.com/angular/angular-seed). Unlike these seeds, this seed aims to be as generic and light as possible without catering to a partular application niche (e.g. angularjs-based apps).
 
 With this seed, you should be able to:
 
-1. Develop in CoffeeScript
-2. Transcompile to JavaScript
-3. Test in CoffeeScript (or JavaScript)
+1. Develop in JavaScript
+3. Test in JavaScript
 4. Build and bundle to JavaScript
 
 Cycle steps one through three, before finally getting to step four. Build and repeat as necessary.
@@ -17,7 +16,6 @@ Cycle steps one through three, before finally getting to step four. Build and re
 Included
 ========
 
-* [CoffeeScript](http://coffeescript.org/) - syntatic sugar
 * [webpack](https://github.com/webpack/webpack) - bundler for modules to be compatible for browser
 * [mocha](https://github.com/visionmedia/mocha) + [chai.js](http://chaijs.com/) = test framework + assertion framework
 * [istanbul](https://github.com/gotwarlost/istanbul) - JS code coverage
@@ -25,7 +23,6 @@ Included
 * [node-coveralls](https://github.com/cainus/node-coveralls) - LCOV posting to [coveralls.io](https://coveralls.io) for public code coverage analysis
 * [gulp](http://gulpjs.com/) - build system
     * [through](https://github.com/dominictarr/through) - through stream wrapper
-    * [gulp-coffee](https://github.com/wearefractal/gulp-coffee) - transcompile JS to CoffeeScript
     * [gulp-util](https://github.com/gulpjs/gulp-util) - utility belt for gulpfile.js
     * [gulp-plumber](https://github.com/floatdrop/gulp-plumber) - monkey-patch Stream.pipe
     * [gulp-watch](https://github.com/floatdrop/gulp-watch) - pipe-able gulp.watch()
@@ -111,15 +108,9 @@ Development Workflow
 
 1.  Run `gulp`.
 
-    This runs gulp.js and runs the default task, defined within `gulpfile.js`, which would run the **dev** task.
+    TODO: Add Mocha test tasks
 
-  The dev task, in principle, run tasks which compile any and all the CoffeeScript files (with extension `.coffee`) under the **./coffee/** folder. Afterwards gulp would watch any CoffeeScript files and compile them individually as they're changed.
-
-    All CoffeeScript files would be compiled to the **./src/** directory in the same directory structure as they're placed in the **./coffee/** folder.
-
-    **Note:** This emulates the following command: `coffee -b -w -c -o ./src/ ./coffee`
-
-2.  Add/edit CoffeeScript source files within `./coffee/` folder.
+2.  Add/edit JavaScript source files within `./src/` folder.
 
     You may structure your project in whatever module definition (AMD, CommonJS, etc) that [webpack](https://github.com/webpack/webpack) supports.
 
@@ -127,7 +118,7 @@ Development Workflow
 
 ## Testing
 
-1. Write tests in CoffeeScript within the `./test/` folder.
+1. Write tests in JavaScript within the `./test/` folder.
 
 2.  Run test(s): `npm test` ( or `mocha`, but `npm test` is recommended)
 
@@ -141,7 +132,7 @@ See [mocha docs](https://github.com/visionmedia/mocha), [chai.js style guide](ht
 
 Since chai.js is included, you're free to use BDD/TDD style.
 
-If you prefer to write tests in JavaScript, feel free to edit `./test/mocha.opts`.
+If you prefer to write tests in CoffeeScript, feel free to edit `./test/mocha.opts`. See [coffeescript-seed-project](https://github.com/Dashed/coffeescript-seed-project) for set up example.
 
 
 ## Code Coverage
@@ -171,8 +162,6 @@ To Do
 
 
 * Consider using gulp-mocha in tandem with gulp-watch.
-
-* Port to javascript-seed-project
 
 License
 =======

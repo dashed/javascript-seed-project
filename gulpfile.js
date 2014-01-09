@@ -7,7 +7,6 @@ var through = require('through');
 
 // Gulp plugins
 var gutil = require('gulp-util');
-var coffee = require('gulp-coffee');
 var watch = require('gulp-watch'); // Replaces gulp.watch
 var gulpif = require('gulp-if');
 var plumber = require('gulp-plumber');
@@ -17,7 +16,6 @@ var through = require("through");
 
 
 /** Config **/
-var srcCoffeeDir = './coffee/';
 var destDir = './src/';
 
 var distDir = './dist/';
@@ -56,29 +54,11 @@ var getGlob = function(glob_target) {
 };
 
 /* Sub-tasks */
-gulp.task('coffee', function() {
+gulp.task('mocha', function() {
 
-    var target = path.normalize(srcCoffeeDir + '/**/*.coffee');
+    // Future...
 
-    getGlob(target)
-        .on('data', function(file){
-            file.coffee_path = file.path;
-        })
-        .pipe(coffee({bare: true}))
-            .on('error', gutil.beep)
-        .pipe(gulp.dest(destDir))
-            .on('data', function(file) {
-
-                var to = path.normalize(destDir + '/' + path.relative(__dirname + '/' + srcCoffeeDir, file.path));
-                finalDestFilePath = path.normalize(destDir + '/' + path.basename(file.path));
-
-                var from = path.relative(__dirname, file.coffee_path);
-
-                gutil.log("Compiled '" + from + "' to '" + to + "'");
-
-            });
 });
-
 gulp.task('dist-minify', function() {
 
     getGlob(distDir + '/' + distFile)
@@ -97,12 +77,7 @@ gulp.task('dev', function() {
 
     ENV_SWITCH = DEV_ENV;
 
-    /**
-    1. watch coffeescript files
-    2. compile to js
-    3. put them in src folder
-    **/
-    gulp.run('coffee');
+    gulp.run('mocha');
 
 });
 
