@@ -41,7 +41,6 @@ Set up
 
     See [npm docs](https://npmjs.org/doc/json.html) for more on `package.json`.
 
-**Note:** When cloning, use `git clone --bare origin-url`
 
 ## gulp
 
