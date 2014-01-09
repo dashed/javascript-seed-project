@@ -18,17 +18,20 @@ Included
 ========
 
 * [CoffeeScript](http://coffeescript.org/) - syntatic sugar
-* browserify - browser compatible require() the node.js way
+* [webpack](https://github.com/webpack/webpack) - bundler for modules to be compatible for browser
 * [mocha](https://github.com/visionmedia/mocha) + [chai.js](http://chaijs.com/) = test framework + assertion framework
 * [istanbul](https://github.com/gotwarlost/istanbul) - JS code coverage
 * [travis-ci](https://travis-ci.org/) - continuous integration service for testing
-* [node-coveralls](https://github.com/cainus/node-coveralls) - lcov posting to [coveralls.io](https://coveralls.io) for public code coverage analysis
+* [node-coveralls](https://github.com/cainus/node-coveralls) - LCOV posting to [coveralls.io](https://coveralls.io) for public code coverage analysis
 * [gulp](http://gulpjs.com/) - build system
+    * [through](https://github.com/dominictarr/through) - through stream wrapper
     * [gulp-coffee](https://github.com/wearefractal/gulp-coffee) - transcompile JS to CoffeeScript
     * [gulp-util](https://github.com/gulpjs/gulp-util) - utility belt for gulpfile.js
-    * gulp-plumber
-    * gulp-watch
-
+    * [gulp-plumber](https://github.com/floatdrop/gulp-plumber) - monkey-patch Stream.pipe
+    * [gulp-watch](https://github.com/floatdrop/gulp-watch) - pipe-able gulp.watch()
+    * [gulp-if](https://github.com/robrich/gulp-if) - conditional pipe
+    * [gulp-rename](https://github.com/hparra/gulp-rename) - rename files
+    * [gulp-uglify](https://github.com/terinjokes/gulp-uglify) - minify
 
 
 
@@ -40,6 +43,27 @@ Set up
 2.  Personalize `LICENSE`, `package.json`, and this `README` file as you see fit for your project.
 
     See [npm docs](https://npmjs.org/doc/json.html) for more on `package.json`.
+
+**Note:** When cloning, use `git clone --bare origin-url`
+
+## gulp
+
+Customize `gulpfile.js` as necessary. See [gulp docs](https://github.com/gulpjs/gulp).
+
+## webpack
+
+Customize `webpack.config.js` as necessary. Configuration are pretty much like command-line args to webpack.
+
+Through the config, webpack will compile an unoptimized build via an entry file and place it within the `./dist/` folder.
+
+Preset:
+
+* `entry` - file to start bundling from
+* `output.filename` - name of the unoptimized compiled file
+* `output.library` - name of exported library (e.g. `MyAwesomeProject()`)
+* `output.libraryTarget` - exporting library to global scope. In this case, preset to [`umd`](https://github.com/ForbesLindesay/umd) (Universal Module Definition), which enables library to be exported to browser, CommonJS,
+
+See [webpack docs](https://github.com/webpack/docs).
 
 ## travis-ci
 
@@ -81,14 +105,15 @@ Type `mocha -h` for possible options.
 
 Minorly customized from [Node.gitignore](https://github.com/github/gitignore/blob/master/Node.gitignore) provided by GitHub.
 
-##
 
 Development Workflow
 ====================
 
 1.  Run `gulp`.
 
-    This runs gulp.js and executes contents of `gulpfile.js`, which compiles any and all the CoffeeScript files (with extension `.coffee`) under the **./coffee/** folder. Afterwards gulp would watch any CoffeeScript files and compile them individually as they're changed.
+    This runs gulp.js and runs the default task, defined within `gulpfile.js`, which would run the **dev** task.
+
+  The dev task, in principle, run tasks which compile any and all the CoffeeScript files (with extension `.coffee`) under the **./coffee/** folder. Afterwards gulp would watch any CoffeeScript files and compile them individually as they're changed.
 
     All CoffeeScript files would be compiled to the **./src/** directory in the same directory structure as they're placed in the **./coffee/** folder.
 
@@ -96,16 +121,9 @@ Development Workflow
 
 2.  Add/edit CoffeeScript source files within `./coffee/` folder.
 
-    CoffeeScript code are typically structured in an [AMD fashion](http://requirejs.org/docs/whyamd.html) using requirejs to better organize the project.
+    You may structure your project in whatever module definition (AMD, CommonJS, etc) that [webpack](https://github.com/webpack/webpack) supports.
 
-    This seed doesn't enforce this style, but it's encouraged.
-
-    **Note:** `requirejs` is made available in node.js for convenience.
-
-    More info:
-    * [requirejs docs](http://requirejs.org/docs/api.html)
-    * [Asynchronous Module Definition API](https://github.com/amdjs/amdjs-api/wiki/AMD)
-
+**Note:** Optionally run webpack via, `npm run webpack`, to watch and bundle as necessary.
 
 ## Testing
 
@@ -123,13 +141,7 @@ See [mocha docs](https://github.com/visionmedia/mocha), [chai.js style guide](ht
 
 Since chai.js is included, you're free to use BDD/TDD style.
 
-### AMD testing (requirejs)
-
-If the project is structured as AMD modules for use by require.js (or some AMD loader), special care is needed to be able to load AMD modules for mocha.
-
-Fortunately, the file `./test/test.coffee` contains all the boilerplate code needed to be able to load and test AMD modules. Feel free to copy and complete.
-
-In short, mocha support for [async code](http://visionmedia.github.io/mocha/#asynchronous-code) along with beforeEach hook makes AMD testing possible.
+If you prefer to write tests in JavaScript, feel free to edit `./test/mocha.opts`.
 
 
 ## Code Coverage
@@ -148,14 +160,15 @@ There is a separate test/code-coverage command for travis-ci (`npm run test-trav
 Build
 =====
 
+1. Run webpack: `npm run webpack`
 
+2.  Run `gulp prod` to build the distributable.
 
-TBA
+    This places a minified js file in `./dist/` folder.
 
 To Do
 =====
 
-* Be able to remove RequireJS dependency for node.js projects without compromising project structure.
 
 * Consider using gulp-mocha in tandem with gulp-watch.
 

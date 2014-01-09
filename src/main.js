@@ -1,4 +1,4 @@
-var SomeApp, beep, shout;
+var SomeApp;
 
 SomeApp = (function() {
   function SomeApp() {
@@ -9,10 +9,4 @@ SomeApp = (function() {
 
 })();
 
-shout = require('./shout');
-
-beep = function() {
-  return console.log(shout('beep'));
-};
-
-module.exports = beep;
+module.exports = SomeApp;

@@ -1,4 +1,3 @@
-
 class SomeApp
 
     constructor: ()->
@@ -6,9 +5,5 @@ class SomeApp
 
 # module.exports = SomeApp
 
-shout = require('./shout')
 
-beep = ()->
-    console.log(shout('beep'))
-
-module.exports = beep
+module.exports = SomeApp

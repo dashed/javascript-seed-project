@@ -63,7 +63,7 @@
 /* 0 */
 /***/ function(module, exports, require) {
 
-	var SomeApp, beep, shout;
+	var SomeApp;
 
 	SomeApp = (function() {
 	  function SomeApp() {
@@ -74,26 +74,7 @@
 
 	})();
 
-	shout = require(1);
-
-	beep = function() {
-	  return console.log(shout('beep'));
-	};
-
-	module.exports = beep;
-
-
-/***/ },
-/* 1 */
-/***/ function(module, exports, require) {
-
-	var shout;
-
-	shout = function(str) {
-	  return str.toUpperCase() + "!!";
-	};
-
-	module.exports = shout;
+	module.exports = SomeApp;
 
 
 /***/ }

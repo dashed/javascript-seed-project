@@ -2,6 +2,7 @@
   "name": "MyAwesomeProject",
   "version": "0.0.0",
   "description": "Description about my awesome project.",
+  "main": "./dist/myawesomeproject.js",
   "scripts": {
     "test": "istanbul test --report html -x 'vendor/**' --hook-run-in-context _mocha",
     "test-travis": "istanbul cover -x 'vendor/**' --hook-run-in-context _mocha -- -R spec;A=$?;cat coverage/lcov.info | coveralls;exit $A",
@@ -27,9 +28,11 @@
     "gulp-util": "~2",
     "coveralls": "~2",
     "gulp-uglify": "~0",
-    "webpack": "~0.11",
+    "webpack": "~0",
     "gulp-watch": "~0",
     "gulp-if": "~0",
-    "gulp-plumber": "~0"
+    "gulp-plumber": "~0",
+    "through": "~2",
+    "gulp-rename": "~0"
   }
 }
