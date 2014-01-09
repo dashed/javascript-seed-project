@@ -13,6 +13,8 @@ With this seed, you should be able to:
 
 Cycle steps one through three, before finally getting to step four. Build and repeat as necessary.
 
+**Note:** Ported from [coffeescript-seed-project](https://github.com/Dashed/coffeescript-seed-project)
+
 Included
 ========
 
