@@ -4,8 +4,8 @@
   "description": "Description about my awesome project.",
   "main": "./dist/myawesomeproject.js",
   "scripts": {
-    "test": "istanbul test --report html -x 'vendor/**' --hook-run-in-context _mocha",
-    "test-travis": "istanbul cover -x 'vendor/**' --hook-run-in-context _mocha -- -R spec;A=$?;cat coverage/lcov.info | coveralls;exit $A",
+    "test": "istanbul test --report html -x 'vendor/**' _mocha",
+    "test-travis": "istanbul cover -x 'vendor/**' _mocha -- -R spec;A=$?;cat coverage/lcov.info | coveralls;exit $A",
     "webpack": "webpack"
   },
   "repository": {
