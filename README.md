@@ -8,10 +8,10 @@ Inspired by projects like [ultimate-seed](https://github.com/pilwon/ultimate-see
 With this seed, you should be able to:
 
 1. Develop in JavaScript
-3. Test in JavaScript
-4. Build and bundle to JavaScript
+2. Test in JavaScript
+3. Build and bundle to JavaScript
 
-Cycle steps one through three, before finally getting to step four. Build and repeat as necessary.
+Cycle steps one through three. Repeat as necessary.
 
 **Note:** Ported from [coffeescript-seed-project](https://github.com/Dashed/coffeescript-seed-project)
 
