@@ -1,6 +1,8 @@
 javascript-seed-project
 =========================
 
+[![Dependency Status](https://david-dm.org/dashed/javascript-seed-project.png)](https://david-dm.org/dashed/javascript-seed-project)
+
 Seed git repo for JavaScript-based projects. Just clone and code.
 
 Inspired by projects like [ultimate-seed](https://github.com/pilwon/ultimate-seed) and [angular-seed](https://github.com/angular/angular-seed). Unlike these seeds, this seed aims to be as generic and light as possible without catering to a partular application niche (e.g. angularjs-based apps).
@@ -18,17 +20,17 @@ Cycle steps one through three. Repeat as necessary.
 Included
 ========
 
+* vanilla JS
 * [webpack](https://github.com/webpack/webpack) - bundler for modules to be compatible for browser
 * [mocha](https://github.com/visionmedia/mocha) + [chai.js](http://chaijs.com/) = test framework + assertion framework
 * [istanbul](https://github.com/gotwarlost/istanbul) - JS code coverage
 * [travis-ci](https://travis-ci.org/) - continuous integration service for testing
 * [node-coveralls](https://github.com/cainus/node-coveralls) - LCOV posting to [coveralls.io](https://coveralls.io) for public code coverage analysis
 * [gulp](http://gulpjs.com/) - build system
-    * [through](https://github.com/dominictarr/through) - through stream wrapper
+    * [through2](https://github.com/rvagg/through2) - through stream wrapper
     * [gulp-util](https://github.com/gulpjs/gulp-util) - utility belt for gulpfile.js
     * [gulp-plumber](https://github.com/floatdrop/gulp-plumber) - monkey-patch Stream.pipe
     * [gulp-watch](https://github.com/floatdrop/gulp-watch) - pipe-able gulp.watch()
-    * [gulp-if](https://github.com/robrich/gulp-if) - conditional pipe
     * [gulp-rename](https://github.com/hparra/gulp-rename) - rename files
     * [gulp-uglify](https://github.com/terinjokes/gulp-uglify) - minify
 
@@ -39,10 +41,13 @@ Set up
 
 1. Clone this git repo. Run `npm install` to download `devDependencies`.
 
-2.  Personalize `LICENSE`, `package.json`, and this `README` file as you see fit for your project.
+2.  Personalize the following files for your project:
+    - `LICENSE`
+    - `package.json`
+    - `CHANGELOG.md`
+    - `README.md`
 
-    See [npm docs](https://npmjs.org/doc/json.html) for more on `package.json`.
-
+    See [npm docs](https://npmjs.org/doc/json.html) for more on customizing `package.json`.
 
 ## gulp
 
@@ -72,6 +77,8 @@ Note that the `script:` attribute is particularly important. This tells travis-c
 travis-ci would execute the following: `npm run test-travis`
 
 **Note:** mocha running in travis-ci uses `-R spec` (or `--reporter spec`) option which will override any such setting in the `./test/mocha.opts` file.
+
+**Note:** Whitelisting is used to allow only the `master` branch to be tested. See [travis docs](http://docs.travis-ci.com/user/build-configuration/#White--or-blacklisting-branches).
 
 ## coveralls.io
 
@@ -109,7 +116,13 @@ Development Workflow
 
 1.  Run `gulp`.
 
-    TODO: Add Mocha test tasks
+    This runs gulp.js, and processes the default task defined within `gulpfile.js`, which, by default, runs the **dev** task.
+
+    The dev task, in principle, runs webpack which then watch and compile the target file as configured within `webpack.config.js`. Compiled file(s) are placed within the **./dist/** folder.
+
+    webpack supports code-splitting, which is useful for large projects. See [webpack docs](http://webpack.github.io/docs/code-splitting.html).
+
+  **Note:** Compiled file(s) is/are not optimized (e.g uglify). This is deferred to `gulp prod`.
 
 2.  Add/edit JavaScript source files within `./src/` folder.
 
@@ -118,6 +131,12 @@ Development Workflow
 **Note:** Optionally run webpack via, `npm run webpack`, to watch and bundle as necessary.
 
 ## Testing
+
+### Automated
+
+`gulp-mocha` is used to watch and automatically run tests within the `./test/` folder.
+
+### Manual
 
 1. Write tests in JavaScript within the `./test/` folder.
 
@@ -131,7 +150,7 @@ Development Workflow
 
 See [mocha docs](https://github.com/visionmedia/mocha), [chai.js style guide](http://chaijs.com/guide/), and [chai.js API docs](http://chaijs.com/api/).
 
-Since chai.js is included, you're free to use BDD/TDD style.
+Since chai.js is included, you have the flexibility to use BDD/TDD style.
 
 If you prefer to write tests in CoffeeScript, feel free to edit `./test/mocha.opts`. See [coffeescript-seed-project](https://github.com/Dashed/coffeescript-seed-project) for set up example.
 
@@ -149,14 +168,23 @@ Refer to earlier parts of this document under "Set Up", to be able to publish LC
 
 There is a separate test/code-coverage command for travis-ci (`npm run test-travis`), which is useful for pushing LCOV reports to coveralls.io during a travis-ci test.
 
+Source map file(s)
+==================
+
+Source map file(s) are generated during both **dev** and **prod** tasks within gulp.
+
+In **dev** task, webpack generates the associated source map file(s).
+
+In **prod** task, uglifyjs2 generates the associated source map file(s).
+
 Build
 =====
 
-1. Run webpack: `npm run webpack`
-
-2.  Run `gulp prod` to build the distributable.
+1.  Run `gulp prod` to build the distributable.
 
     This places a minified js file in `./dist/` folder.
+
+    The associated distributable source map file(s) is/are generated.
 
 To Do
 =====

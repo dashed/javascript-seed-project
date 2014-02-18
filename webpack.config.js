@@ -7,5 +7,6 @@ module.exports = {
     libraryTarget: "umd"
   },
   watch: true,
-  watchDelay: 500
+  watchDelay: 500,
+  devtool: 'source-map'
 }

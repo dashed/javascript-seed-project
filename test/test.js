@@ -1,11 +1,13 @@
-var assert, chai, expect, should;
+var
 
-chai = require('chai');
+// Project
+main = require('../src/main'),
 
-assert = chai.assert;
+// Chai
+chai = require('chai'),
 
-should = chai.should();
-
+assert = chai.assert,
+should = chai.should(),
 expect = chai.expect;
 
 describe('something', function(done) {
