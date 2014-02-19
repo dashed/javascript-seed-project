@@ -186,11 +186,6 @@ Build
 
     The associated distributable source map file(s) is/are generated.
 
-To Do
-=====
-
-
-* Consider using gulp-mocha in tandem with gulp-watch.
 
 License
 =======
