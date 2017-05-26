@@ -1,0 +1,48 @@
+{
+  "name": "react-webpack",
+  "version": "0.1.0",
+  "description": "PROJECT DESCRIPTION",
+  "repository": "git@github.com:dashed/javascript-seed-project.git",
+  "author": "Alberto Leal <mailforalberto@gmail.com>",
+  "license": "Unlicense",
+  "private": true,
+  "scripts": {
+    "webpack": "webpack --config webpack.config.js"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "plugins": [
+      "react"
+    ],
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ]
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "eslint": "^3.19.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-react": "^7.0.1",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.5",
+    "redux": "^3.6.0",
+    "webpack": "^2.6.1"
+  }
+}
