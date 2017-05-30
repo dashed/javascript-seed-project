@@ -33,7 +33,15 @@ module.exports = {
                         loader: 'babel-loader',
                         options: {
                             cacheDirectory: true,
-                            presets: ['es2015', 'react', 'stage-2'],
+                            presets: [
+                                'react',
+                                'stage-2',
+                                ["env", {
+                                    "targets": {
+                                        "browsers": ["last 2 versions", "safari >= 7"]
+                                    }
+                                }]
+                            ],
                             plugins: ['transform-runtime']
                         }
                     }
