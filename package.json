@@ -1,0 +1,50 @@
+{
+  "name": "create-react-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "husky": "^0.14.3",
+    "lint-staged": "^7.1.2",
+    "prettier": "^1.13.0",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-scripts": "1.1.4"
+  },
+  "lint-staged": {
+    "*.{js,jsx,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "peerDependencies": {
+    "jest": "20.x"
+  },
+  "scripts": {
+    "pretty": "prettier --single-quote --write 'src/**/*.{js,jsx,json,css,md}' '**/*.{js,jsx,css,md}'",
+    "precommit": "lint-staged",
+    "flow": "flow",
+    "flow:update-defs": "flow-typed update --skip",
+    "noflow": "cd src/;flow-annotation-check --list-files=noflow",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test --env=jsdom",
+    "eject": "react-app-rewired eject",
+    "lint:js": "eslint src --max-warnings=0"
+  },
+  "jest": {
+    "moduleDirectories": [
+      "node_modules",
+      "<rootDir>/src"
+    ],
+    "moduleNameMapper": {
+      "^~/(.*)": "<rootDir>/src/$1"
+    }
+  },
+  "devDependencies": {
+    "babel-plugin-module-resolver": "^3.1.1",
+    "flow-annotation-check": "^1.8.1",
+    "flow-bin": "^0.73.0",
+    "flow-typed": "^2.4.0",
+    "react-app-rewired": "^1.5.2"
+  }
+}
