@@ -45,7 +45,7 @@ rm -rf .git
 - Build: `yarn build`
 - Prettier: `yarn pretty`
 - Flow check: `yarn flow`
-- Update [`flow-typed`](https://github.com/flowtype/flow-typed) definitions: `flow:update-defs`
+- Update [`flow-typed`](https://github.com/flowtype/flow-typed) definitions: `yarn flow:update-defs`
 - Check files with no `// @flow`: `yarn noflow`
 - Check eslint: `yarn lint:js`
 
